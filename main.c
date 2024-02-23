@@ -9,7 +9,7 @@ int main(int argc , char **argv) {
   NodePtr headPtr=NULL;
   NodePtr tailPtr=NULL;
 
-  int i,d;
+  int i,d,price,n=0;
 
   Queue  q;
    q.headPtr=NULL;
@@ -18,12 +18,15 @@ int main(int argc , char **argv) {
 
  for(i=1;i<argc;i++){
         if(strcmp(argv[i],"x")==0){
-            d = dequeue_struct(&q);
-            printf("dequeing %d\n",d);
+            d = dequeue_struct(&q,++n);
         }
         else {
-        enqueue_struct(&q, atoi(argv[i]));
-        }
+        enqueue_struct(&q, atoi(argv[i]), atoi(argv[i+1]));
+        printf("   My order number is %d\n",atoi(argv[i]));
+        i++;
+        }   
  }
+        printf("==========================\n");
+        if(q.size>0){ printf("There are %d queue left ;0;\n",q.size); printf("==========================\n");}
   return 0;
 }
