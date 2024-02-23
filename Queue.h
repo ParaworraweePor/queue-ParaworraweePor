@@ -45,7 +45,7 @@ int dequeue_struct(Queue *q, int no){
     case 1: payment(100*n,"Ramen        ",no); break;
     case 2: payment(20*n,"Somtum      ",no); break;
     case 3: payment(50*n,"Fried Chicken   ",no); break;
-    default:  printf("--------------------------\n"); printf("|         No Food        |\n"); printf("--------------------------\n");
+    default:  printf("--------------------------\n"); printf("|         No Food        |\n"); printf("--------------------------\n"); no--; 
     }
    q->headPtr = t->next;
    if(q->size==1) q->tailPtr=NULL;
